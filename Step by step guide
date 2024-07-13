@@ -1,0 +1,43 @@
+# Prerequisites
+Kali Linux installed
+Basic knowledge of terminal commands
+
+# Step-by-Step Guide
+1. Install Dependencies
+sudo apt update
+sudo apt install git python3-venv python3-pip -y
+2. Clone the Cowrie Repository
+git clone http://github.com/cowrie/cowrie
+cd cowrie
+3. Create and Activate a Virtual Environment
+python3 -m venv cowrie-env
+source cowrie-env/bin/activate
+4. Install Python Dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+5. Configure Cowrie
+cp etc/cowrie.cfg.dist etc/cowrie.cfg
+6. Start Cowrie
+./bin/cowrie start
+
+# Troubleshooting
+If you encounter the error ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt', ensure you are in the correct directory and that the file exists.
+
+cd /path/to/cowrie
+ls
+If the requirements.txt file is missing, re-clone the repository:
+
+cd ..
+rm -rf cowrie
+git clone http://github.com/cowrie/cowrie
+cd cowrie
+Logs
+To view Cowrie logs, use the following command:
+
+tail -f var/log/cowrie/cowrie.log
+cat var/log/cowrie/cowrie.log
+
+# Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
